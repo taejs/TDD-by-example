@@ -1,7 +1,7 @@
 import Money from "./Money";
 
 class Franc extends Money{
-  times(times: number) {
+  times(times: number): Money {
     return new Franc(this.amount * times);
   }
 }
