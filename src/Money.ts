@@ -24,23 +24,11 @@ class Money {
   }
 
   static dollar(amount: number):Money {
-    return new Dollar(amount);
+    return new Money(amount, 'USD');
   }
 
   static franc(amount: number):Money {
-    return new Franc(amount);
-  }
-}
-
-export class Dollar extends Money{
-  constructor(amount: number) {
-    super(amount, 'USD');
-  }
-}
-
-export class Franc extends Money{
-  constructor(amount: number) {
-    super(amount, 'CHF');
+    return new Money(amount, 'CHF');
   }
 }
 
