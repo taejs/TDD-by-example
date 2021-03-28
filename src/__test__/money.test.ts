@@ -1,4 +1,4 @@
-import Money from "../Money";
+import Money, { Dollar } from "../Money";
 
 describe('Money', () => {
   test('Dollar 사이드 이펙트 삭제 - 곱연산 수행 후에도 값이 바뀌지 않는다.' ,() => {
@@ -25,5 +25,9 @@ describe('Money', () => {
   test('Money.currency - 통화', () => {
     expect(Money.dollar(1).currency).toBe('USD');
     expect(Money.franc(1).currency).toBe('CHF');
+  })
+
+  test('Money.currency 비교 - 통화 기반', () => {
+    expect(new Money(1, 'USD').equals(new Dollar(1)))
   })
 })
