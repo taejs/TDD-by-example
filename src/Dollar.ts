@@ -1,19 +1,9 @@
-class Dollar {
-  private amount: number = 0;
+import Money from "./Money";
 
-  constructor(amount: number) {
-    this.amount = amount;
-  }
+class Dollar extends Money{
 
   times(times: number) {
     return new Dollar(this.amount * times);
-  }
-
-  equals(dollar: Object) {
-    if(dollar instanceof Dollar) {
-      return this.amount === dollar.amount;
-    }
-    return false;
   }
 }
 
