@@ -1,5 +1,5 @@
 class Dollar {
-  public amount: number = 0;
+  private amount: number = 0;
 
   constructor(amount: number) {
     this.amount = amount;
