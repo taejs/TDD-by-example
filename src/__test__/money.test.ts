@@ -17,5 +17,7 @@ describe('Money', () => {
   test('Money 비교 연산', () => {
     expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
     expect(new Dollar(5).equals(new Dollar(6))).toBe(false);
+    expect(new Franc(5).equals(new Franc(5))).toBe(true);
+    expect(new Franc(5).equals(new Franc(6))).toBe(false);
   })
 })
