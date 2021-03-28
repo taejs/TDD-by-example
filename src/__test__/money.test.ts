@@ -1,4 +1,6 @@
 import Money from "../Money";
+import Bank from "../Bank";
+import Expression from "../Expression";
 
 describe('Money', () => {
   test('Dollar 사이드 이펙트 삭제 - 곱연산 수행 후에도 값이 바뀌지 않는다.' ,() => {
@@ -22,5 +24,12 @@ describe('Money', () => {
   test('Money.currency - 통화', () => {
     expect(Money.dollar(1).currency).toBe('USD');
     expect(Money.franc(1).currency).toBe('CHF');
+  })
+
+  test('Money - 합연산', () => {
+    const bank = new Bank();
+    const sum: Expression = Money.dollar(5).plus(Money.dollar(5));
+    const reduced: Money = bank.reduce(sum, 'USD');
+    expect(reduced.equals(Money.dollar(10))).toBe(true);
   })
 })
