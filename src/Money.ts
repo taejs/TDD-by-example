@@ -26,13 +26,13 @@ abstract class Money {
 
 class Dollar extends Money{
   times(times: number) {
-    return new Dollar(this.amount * times);
+    return Money.dollar(this.amount * times);
   }
 }
 
 class Franc extends Money{
   times(times: number): Money {
-    return new Franc(this.amount * times);
+    return Money.franc(this.amount * times);
   }
 }
 
