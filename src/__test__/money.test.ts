@@ -1,4 +1,5 @@
 import Dollar from '../Dollar';
+import Franc from '../Franc';
 
 describe('Dollar', () => {
   test('Dollar 사이드 이펙트 삭제 - 연산 수행 후에도 값이 바뀌지 않는다.' ,() => {
@@ -13,3 +14,11 @@ describe('Dollar', () => {
   })
 })
 
+
+describe('Franc', () => {
+  test('Franc - 곱 연산 수행 후에도 값이 바뀌지 않는다.' ,() => {
+    const five = new Franc(5);
+    expect(new Franc(10).equals(five.times(2))).toBe(true);
+    expect(new Franc(15).equals(five.times(3))).toBe(true);
+  })
+})
