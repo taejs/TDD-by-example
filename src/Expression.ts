@@ -1,5 +1,7 @@
+import Bank from "./Bank";
+
 abstract class Expression {
-  abstract reduce(to: string): Expression;
+  abstract reduce(bank:Bank, to: string): Expression;
 }
 
 export default Expression;
