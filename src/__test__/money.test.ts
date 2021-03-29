@@ -28,9 +28,9 @@ describe('Money', () => {
 
   test('Money - 합연산', () => {
     const bank = new Bank();
-    const sum: Expression = Money.dollar(5).plus(Money.dollar(5));
+    const sum: Sum = Money.dollar(3).plus(Money.dollar(4));
     const reduced: Money = bank.reduce(sum, 'USD');
-    expect(reduced.equals(Money.dollar(10))).toBe(true);
+    expect(reduced.equals(Money.dollar(7))).toBe(true);
   })
 
   test('Sum', () => {

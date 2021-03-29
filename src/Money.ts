@@ -9,16 +9,24 @@ export class Sum extends Expression {
     this.augend = augend;
     this.addend = addend;
   }
+
+  reduce(to: string): Money {
+    return new Money(this.augend.amount + this.addend.amount, to);
+  }
 }
 
 class Money extends Expression {
-  protected amount: number = 0;
+  amount: number = 0;
   protected _currency: string;
 
   constructor(amount: number, currency: string) {
     super();
     this.amount = amount;
     this._currency = currency;
+  }
+
+  reduce() {
+    return this;
   }
 
   equals(money: Object) {
