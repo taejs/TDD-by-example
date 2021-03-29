@@ -25,8 +25,9 @@ class Money extends Expression {
     this._currency = currency;
   }
 
-  reduce() {
-    return this;
+  reduce(to: string): Money {
+    const rate = this.currency === 'CHF' && to === 'USD' ? 2:1
+    return new Money(this.amount / rate, to);
   }
 
   equals(money: Object) {

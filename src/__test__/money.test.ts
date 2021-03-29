@@ -38,4 +38,11 @@ describe('Money', () => {
     expect(result.augend.equals(Money.dollar(3)));
     expect(result.addend.equals(Money.dollar(4)));
   })
+
+  test('서로 다른 통화 개념의 합연산', () => {
+    const bank = new Bank();
+    bank.addRate('CHF', 'USD', 2);
+    const result: Money = bank.reduce(Money.franc(2), 'USD');
+    expect(Money.dollar(1).equals(result)).toBe(true);
+  })
 })
