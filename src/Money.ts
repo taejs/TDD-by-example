@@ -1,5 +1,16 @@
 import Expression from "./Expression";
 
+export class Sum extends Expression {
+  public augend: Money;
+  public addend: Money;
+
+  constructor(augend:Money, addend:Money) {
+    super();
+    this.augend = augend;
+    this.addend = addend;
+  }
+}
+
 class Money extends Expression {
   protected amount: number = 0;
   protected _currency: string;
@@ -22,8 +33,8 @@ class Money extends Expression {
     return new Money(this.amount * times, this.currency);
   };
 
-  plus(addend: Money): Expression {
-    return new Money(this.amount + addend.amount, this.currency);
+  plus(addend: Money): Sum {
+    return new Sum(this, addend);
   }
 
   get currency() {

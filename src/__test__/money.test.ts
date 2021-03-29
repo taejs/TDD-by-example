@@ -1,4 +1,4 @@
-import Money from "../Money";
+import Money, { Sum } from "../Money";
 import Bank from "../Bank";
 import Expression from "../Expression";
 
@@ -31,5 +31,11 @@ describe('Money', () => {
     const sum: Expression = Money.dollar(5).plus(Money.dollar(5));
     const reduced: Money = bank.reduce(sum, 'USD');
     expect(reduced.equals(Money.dollar(10))).toBe(true);
+  })
+
+  test('Sum', () => {
+    const result: Sum = Money.dollar(3).plus(Money.dollar(4));
+    expect(result.augend.equals(Money.dollar(3)));
+    expect(result.addend.equals(Money.dollar(4)));
   })
 })
