@@ -1,4 +1,7 @@
-function amountFor(aPerformance, play) {
+const playFor = require("../playFor");
+
+function amountFor(aPerformance) {
+  const play = playFor(aPerformance);
   let result = 0;
 
   switch (play.type) {
