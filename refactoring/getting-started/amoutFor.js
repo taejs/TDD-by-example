@@ -1,10 +1,9 @@
 const playFor = require("../playFor");
 
 function amountFor(aPerformance) {
-  const play = playFor(aPerformance);
   let result = 0;
 
-  switch (play.type) {
+  switch (aPerformance.play.type) {
     case "tragedy":
       result = 400000;
       if (aPerformance.audience > 30) {
@@ -19,7 +18,7 @@ function amountFor(aPerformance) {
       result += 300 * aPerformance.audience;
       break;
     default:
-      throw new Error(`알 수 없는 장르: ${play.time}`);
+      throw new Error(`알 수 없는 장르: ${aPerformance.play.time}`);
   }
 
   return result;
