@@ -1,10 +1,8 @@
-const volumeCreditsFor = require("./volumeCreditsFor");
-
-function totalVolumeCredits() {
+function totalVolumeCredits(data) {
   let volumeCredits = 0;
 
-  for (let perf of invoice.performances) {
-    volumeCredits += volumeCreditsFor(perf);
+  for (let perf of data.performances) {
+    volumeCredits += perf.volumeCredits;
   }
 }
 

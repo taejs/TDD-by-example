@@ -1,10 +1,8 @@
-const amountFor = require("./amoutFor");
-
-function totalAmount() {
+function totalAmount(data) {
   let result = 0;
 
-  for (let perf of invoice.performances) {
-    result += amountFor(perf);
+  for (let perf of data.performances) {
+    result += perf.amount;
   }
   return result;
 }
