@@ -1,12 +1,20 @@
-const amountFor = require("./amoutFor");
 const totalVolumeCredits = require("./totalVolumeCredits");
 const totalAmount = require("./totalAmount");
 const playFor = require("../playFor");
-const volumeCreditsFor = require("./volumeCreditsFor");
-const PerformanceCalculator = require("./PerformanceCalculator");
+const { ComedyCalculator } = require("./calculators");
+const { TragedyCalculator } = require("./calculators");
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+  switch (aPlay.type) {
+    case "tragedy":
+      return new TragedyCalculator(aPerformance, aPlay);
+    case "comedy":
+      return new ComedyCalculator(aPerformance, aPlay);
+  }
+}
 
 function enrichPerformance(aPerformance) {
-  const calculator = new PerformanceCalculator(
+  const calculator = createPerformanceCalculator(
     aPerformance,
     playFor(aPerformance)
   );
