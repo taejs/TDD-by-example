@@ -1,8 +1,4 @@
-const amountFor = require("./amoutFor");
-const totalVolumeCredits = require("./totalVolumeCredits");
-const totalAmount = require("./totalAmount");
-const playFor = require("../playFor");
-const volumeCreditsFor = require("./volumeCreditsFor");
+const createStatementData = require("./createStatementData");
 
 function usd(amount) {
   return new Intl.NumberFormat("en-US", {
@@ -12,22 +8,8 @@ function usd(amount) {
   }).format(amount / 100);
 }
 
-function enrichPerformance(aPerformance) {
-  const result = Object.assign({}, aPerformance);
-  result.play = playFor(aPerformance).name;
-  result.amount = amountFor(aPerformance);
-  result.volumeCredits = volumeCreditsFor(aPerformance);
-  return result;
-}
-
 function statement(invoice) {
-  const statementData = {
-    customer: invoice.customer,
-    performances: invoice.performances.map(enrichPerformance),
-    totalAmount: totalAmount(invoice),
-    totalVolumeCredits: totalVolumeCredits(invoice)
-  };
-  return renderPlainText(statementData);
+  return renderPlainText(createStatementData(invoice));
 }
 
 function renderPlainText({
