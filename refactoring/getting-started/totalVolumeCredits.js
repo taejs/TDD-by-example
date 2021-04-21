@@ -1,9 +1,8 @@
 function totalVolumeCredits(data) {
-  let volumeCredits = 0;
-
-  for (let perf of data.performances) {
-    volumeCredits += perf.volumeCredits;
-  }
+  return data.performances.reduce(
+    (total, perf) => total + perf.volumeCredits,
+    0
+  );
 }
 
 module.exports = totalVolumeCredits;

@@ -1,10 +1,5 @@
 function totalAmount(data) {
-  let result = 0;
-
-  for (let perf of data.performances) {
-    result += perf.amount;
-  }
-  return result;
+  return data.performances.reduce((total, perf) => total + perf.amount, 0);
 }
 
 module.exports = totalAmount;
