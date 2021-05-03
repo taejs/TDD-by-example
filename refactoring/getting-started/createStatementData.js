@@ -1,6 +1,6 @@
 const totalVolumeCredits = require("./totalVolumeCredits");
 const totalAmount = require("./totalAmount");
-const playFor = require("../playFor");
+const playFor = require("./playFor");
 const { ComedyCalculator } = require("./calculators");
 const { TragedyCalculator } = require("./calculators");
 

@@ -1,4 +1,4 @@
-const playFor = require("../playFor");
+const playFor = require("./playFor");
 const PerformanceCalculator = require("./PerformanceCalculator");
 
 function amountFor(aPerformance) {
