@@ -35,4 +35,12 @@ function temp_calculateDistance(points) {
     result += distance(points[i - 1], points[i]);
   }
   return result;
+
+  function distance(p1, p2) {
+    return radians(0);
+  }
+
+  function radians(degrees) {
+    return 0;
+  }
 }
