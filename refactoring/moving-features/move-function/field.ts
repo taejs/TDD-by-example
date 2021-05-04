@@ -1,20 +1,18 @@
 class Customer {
   _name: string;
-  _discountRate: number;
   _contract: CustomerContract;
 
   constructor({ name, discountRate }) {
     this._name = name;
     this._contract = new CustomerContract(new Date(), discountRate);
-    this._setDiscountRate(discountRate);
   }
 
   get discountRate() {
-    return this._discountRate;
+    return this._contract.discountRate;
   }
 
   _setDiscountRate(aNumber) {
-    this._discountRate = aNumber;
+    this._contract.discountRate = aNumber;
   }
 
   becomePreferred() {
