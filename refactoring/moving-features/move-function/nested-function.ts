@@ -6,10 +6,6 @@ function trackSummary(points) {
     distance: totalDistances(points),
     pace
   };
-
-  function calculateTime() {
-    return 0;
-  }
 }
 
 function totalDistances(points) {
@@ -18,12 +14,16 @@ function totalDistances(points) {
     result += distance(points[i - 1], points[i]);
   }
   return result;
+}
 
-  function distance(p1, p2) {
-    return radians(0);
-  }
+function distance(p1, p2) {
+  return radians(0);
+}
 
-  function radians(degrees) {
-    return 0;
-  }
+function radians(degrees) {
+  return 0;
+}
+
+function calculateTime() {
+  return 0;
 }
