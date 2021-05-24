@@ -3,7 +3,7 @@ class Order {
   _customer: Customer;
   constructor(data) {
     this._amount = data.amount;
-    this._customer = new Customer(data.customerId);
+    this._customer = registerCustomer(data.customerId);
   }
 
   get customer() {
@@ -21,9 +21,24 @@ class Customer {
   }
 }
 
-const o1 = new Order({ amount: 100, customerId: "de56" });
-const o2 = new Order({ amount: 200, customerId: "de56" });
-const o3 = new Order({ amount: 140, customerId: "de56" });
-const o4 = new Order({ amount: 300, customerId: "de56" });
-const o5 = new Order({ amount: 100, customerId: "de56" });
-// 같은 객체를 표현하려고 했지만 독립된 고객 객체 5개가 만들어진다.
+//repository object
+let _repositoryData = initialize();
+
+export function initialize() {
+  return {
+    customers: new Map()
+  };
+}
+
+export function registerCustomer(id) {
+  if (!_repositoryData.customers.has(id)) {
+    _repositoryData.customers.set(id, new Customer(id));
+  }
+  return findCustomer(id);
+}
+
+export function findCustomer(id) {
+  return _repositoryData.customers.get(id);
+}
+// 생성자 본문이 전역 저장소와 결합된다는 문제가 있다.
+// 저장소를 생성자 매개변수로 전달(DI)하여 해결할 수 있다.
